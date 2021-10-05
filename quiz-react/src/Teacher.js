@@ -20,3 +20,6 @@ function Teacher(props){
   function WrongAnswer(props){
     return <input type="text" placeholder="Write a wrong answer here" value={props.value}></input>
   }
+
+  export default Teacher;
+

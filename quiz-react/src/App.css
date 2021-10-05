@@ -18,20 +18,19 @@ body{
   }
 }
 
-.App-link {
-  color: #61dafb;
+.loginLayout{
+margin-top: 25%;
+}
+
+.loginLayout h1 {
+  margin-bottom: 50px;
 }
 
 .login{
-  width: 30%;
+  width: 20%;
   margin: auto;
   display: flex;
   justify-content: space-between;
-
-}
-
-.login input{
-  border-radius: 5px;
 }
 
 .button{
@@ -43,6 +42,7 @@ body{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 5px;
 }
 
 .teacherTitle{
@@ -50,6 +50,7 @@ body{
 }
 
 .teacherForm{
+  width: 50%;
   margin: auto;
   margin-top: 50px;
   display: flex;
