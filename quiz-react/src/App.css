@@ -1,3 +1,8 @@
+body{
+  background-color: #101113;
+  color: white;
+}
+
 .App {
   text-align: center;
 }
@@ -13,20 +18,81 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
+
+.login{
+  width: 30%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.login input{
+  border-radius: 5px;
+}
+
+.button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.teacherTitle{
+  margin-top: 100px;
+}
+
+.teacherForm{
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.teacherForm input[type=text]{
+  padding: 15px 20px;
+  display: inline-block;
+  border: 2px solid lightblue;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+/* STUDENTVIEW */
+
+section{
+  margin: auto;
+  margin-top: 100px;
+  background-color: #f3f3f3;
+  color: #101113;
+  width: 60%;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+
+.flex{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.studentAnswer{
+  background-color: #f3f3f3;
+  color: #101113;
+  width: 20%;
+  padding: 20px;
+  border-radius: 5px;
+}
+
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +102,5 @@
     transform: rotate(360deg);
   }
 }
+
+
