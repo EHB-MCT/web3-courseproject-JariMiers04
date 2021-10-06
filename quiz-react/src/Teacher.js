@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import './Style.scss';
 
-function Teacher(props){
-  return (<form>
+
+class Teacher extends Component{
+
+  // WrongAnswer = ()=>{
+  //   return <input type="text" placeholder="Write a wrong answer here"></input>
+  // }
+
+  render(){
+    return (<form>
       <h1 className='teacherTitle'>Write your question here</h1>
       <div className = 'teacherForm'>
     <input type="text" className='questionInput' placeholder="Write your question here"></input>
@@ -17,10 +24,6 @@ function Teacher(props){
     </div>
     </form>)
   }
-  
-  function WrongAnswer(props){
-    return <input type="text" placeholder="Write a wrong answer here"></input>
-  }
-
+}
   export default Teacher;
 
