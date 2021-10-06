@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Teacher from './Teacher'; 
 import Student from './Students';
 import Login from './Login';
