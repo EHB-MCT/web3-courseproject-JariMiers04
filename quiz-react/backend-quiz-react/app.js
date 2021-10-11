@@ -11,18 +11,18 @@ const teacherQuestions = require("./repos/teacherQuestions");
 const app = express();
 const router = express.Router();
 
+app.use(bodyParser.json());
 
 const { MongoClient } = require('mongodb');
 const url = "mongodb+srv://admin:JariMiers04@quiz.etjsy.mongodb.net/quiz?retryWrites=true&w=majority";
 const dbName = 'questionsTeacher';
 const dbClient = new MongoClient(url);
 
-app.use(cors());
 
 dbClient.connect(()=>{
   console.log("Connected to db");
 });
-
+app.use(cors());
 
 app.use(router);
 
@@ -68,24 +68,36 @@ router.route('/').get(async(req, res)=>{
   res.send("Hello, welcome to my index page");
 });
 
+router.route('/allTeacher').get(async(req,res)=>{
+  const db = dbClient.db(dbName);
+
+  const collection = db.collection('questions');
+
+  const allQuestions = await collection.find({}).toArray();
+  console.log(allQuestions);
+  res.send(allQuestions);
+})
+
 router.route('/teacher').post(async(req,res)=>{
   const db = dbClient.db(dbName);
 
   const collection = db.collection("questions");
 
-  const{question, correctAnswer, wrongAnswer: []} = req.body;
-  console.log(req.body);
+  // const{question, correctAnswer, wrongAnswer: []} = req.body;
+  // console.log(req.body);
 
-  let newQuestion = {
-    question,
-    correctAnswer,
-    wrongAnswer
-  }
+  // let newQuestion = {
+  //   question,
+  //   correctAnswer,
+  //   wrongAnswer
+  // }
 
-  console.log(newQuestion);
+  // console.log(newQuestion);
 
-  collection.insertOne(newQuestion);
-  res.send(newQuestion);
+  // collection.insertOne(newQuestion);
+  console.log(req.body)
+  res.send("this is a post test");
+  // res.send(newQuestion);
 })
 
 app.listen(port, () => console.log(`Server is listening on http://localhost:${port}`))
