@@ -2,50 +2,57 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const {
-  MongoClient
-} = require('mongodb');
-
-const port = process.env.PORT || 3000;
-
-const app = express();
-const router = express.Router();
+const teacherQuestions = require("./repos/teacherQuestions");
+const data = require("./questionExample.json");
 
 
-// Middleware
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
-app.use(bodyParser.json());
-app.use(cors());
+const { MongoClient } = require('mongodb');
+const url = "mongodb+srv://admin:JariMiers04@quiz.etjsy.mongodb.net/quiz?retryWrites=true&w=majority";
 
 
-const uri = "mongodb+srv://admin:admin@cluster0.gvz9r.mongodb.net/?retryWrites=true&w=majority";
-const dbClient = MongoClient(uri, {
-  useUnifiedTopology: true
-});
-const dbName = "quiz";
+async function main(){
+  const client = new MongoClient(url);
+  await client.connect();
 
-dbClient.connect(() => {
-  console.log("Connected to database");
-});
+  const results = await teacherQuestions.loadData(data);
+  console.log(results.insertedCount, results.ops)
+  const admin = client.db('quiz').admin();
+  // console.log(await admin.serverStatus());
+  console.log(await admin.listDatabases());
+}
 
-app.use(router);
+main();
 
-router.route('/').get((req, res) => {
+// const port = process.env.PORT || 3000;
 
-  })
+// const app = express();
+// const router = express.Router();
 
 
-.post(async(req,res)=>{
-    const db = dbClient.db(dbName);
-    const{question, correctAnswer, wrongAnswers} = req.body;
+// // Middleware
 
-    const newQuestion = {
-        question,
-        correctAnswer,
-        wrongAnswers
-    }
-})
+// app.use(bodyParser. lencoded({
+//   extended: true
+// }));
+
+// app.use(bodyParser.json());
+// app.use(cors());
+
+
+// app.use(router);
+
+// router.route('/').get((req, res) => {
+
+//   })
+
+
+// .post(async(req,res)=>{
+//     const db = dbClient.db(dbName);
+//     const{question, correctAnswer, wrongAnswers} = req.body;
+
+//     const newQuestion = {
+//         question,
+//         correctAnswer,
+//         wrongAnswers
+//     }
+// })
