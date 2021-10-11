@@ -5,7 +5,6 @@ class Student extends Component{
 
     constructor(props){
         super(props)
-        this.state = {}
     }
 
     handleSubmit = (event) =>{
@@ -33,13 +32,12 @@ class Student extends Component{
         <div className="answerStudent"><label for="studentAnswer"><input type='radio' value="studentAnswer"></input>STUDENTANSWER</label></div>
         <div className="answerStudent"><label for="studentAnswer"><input type='radio' value="studentAnswer"></input>STUDENTANSWER</label></div>
         </div>
-            <button type='submit' value="Submit" className='btn cta'>SEND QUESTION</button>
+            <button type='submit' value="Submit" className='btn cta'>VALIDATE answer</button>
     </form>
     </div>
             </>
     }
 }
-
 
 
 export default Student
