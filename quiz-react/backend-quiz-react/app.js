@@ -68,7 +68,7 @@ router.route('/').get(async(req, res)=>{
   res.send("Hello, welcome to my index page");
 });
 
-router.route('/allTeacher').get(async(req,res)=>{
+router.route('/teacher').get(async(req,res)=>{
   const db = dbClient.db(dbName);
 
   const collection = db.collection('questions');
@@ -76,9 +76,7 @@ router.route('/allTeacher').get(async(req,res)=>{
   const allQuestions = await collection.find({}).toArray();
   console.log(allQuestions);
   res.send(allQuestions);
-})
-
-router.route('/teacher').post(async(req,res)=>{
+}).post(async(req,res)=>{
   const db = dbClient.db(dbName);
 
   const collection = db.collection("questions");
@@ -94,10 +92,10 @@ router.route('/teacher').post(async(req,res)=>{
 
   // console.log(newQuestion);
 
-  // collection.insertOne(newQuestion);
+  collection.insertOne(req.body);
   console.log(req.body)
   res.send("this is a post test");
-  // res.send(newQuestion);
+  res.send(req.body);
 })
 
 app.listen(port, () => console.log(`Server is listening on http://localhost:${port}`))

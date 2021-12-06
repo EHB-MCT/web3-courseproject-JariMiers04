@@ -13,6 +13,14 @@ class Teacher extends Component{
 
   handleSubmit = async (event) =>{
     event.preventDefault();
+
+    this.newQuestion = {
+      question: document.getElementById('question').value,
+      correctAnswer: document.getElementById('correctAnswer').value,
+      wrongAnswers: [document.getElementById('wrongAnswer1').value,
+      document.getElementById('wrongAnswer2').value,
+      document.getElementById('wrongAnswer3').value]
+    }
     
     const response = await fetch("http://localhost:3000/teacher",{
     body: JSON.stringify(this.newQuestion),
@@ -27,14 +35,7 @@ class Teacher extends Component{
     console.log(json);
     // let question = document.getElementById('question').value;
     // let correctAnswer = document.getElementById('correctAnswer').value;
-    
-    this.newQuestion = {
-      question: document.getElementById('question').value,
-      correctAnswer: document.getElementById('correctAnswer').value,
-      wrongAnswers: [document.getElementById('wrongAnswer1').value,
-      document.getElementById('wrongAnswer2').value,
-      document.getElementById('wrongAnswer3').value]
-    }
+  
 
     // this.object.push(
     //   question,
