@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans:wght@600&family=Work+Sans:wght@500;600;700&display=swap');
+
+body{
+    font-family: 'Work Sans', sans-serif;
+}
+
+header {
+    width: 97%;
+    border-radius: 8px;
+    margin: auto;
+    height: 96vh;
+    margin-top: 20px;
+    background-image: url('../assets/backgroundHeader.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    width: 422px;
+    /* width: 22%; */
+    height: 550px;
+    background-color: #FAED25;
+    position: absolute;
+    right: 80px;
+    z-index: 2;
+    margin-top: -20px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65%;
+}
+
+li {
+    margin-left: 50px;
+    padding: 10px;
+}
+
+li a{
+    text-decoration: none;
+    color: #2D1F38;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+li a:hover {
+    color: #2D1F38;
+}
+
+h1 {
+    color: #FAED25;
+}
+
+h2 {
+    color: white;
+}
+
